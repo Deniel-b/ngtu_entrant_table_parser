@@ -39,6 +39,7 @@ def send_hello(message):
 
 @bot.message_handler(commands=['docs'])
 def send_doc_count(message):
+    non_commercial = 40 + 93 + 125 + 35
     pmi_names_ = get_table_data(url_pmi).keys()
     ivt_names_ = get_table_data(url_ivt).keys()
     ist_names_ = get_table_data(url_ist).keys()
@@ -118,12 +119,13 @@ def send_radio_list(message):
 
 @bot.message_handler(commands=['help'])
 def send_help(message):
-    print('/help  - получение известных команд бота')
-    print('/list_pmi  - получение списка абитуриентов на ПМИ')
-    print('/list_ivt  - получение списка абитуриентов на ИВТ')
-    print('/list_ist  - получение списка абитуриентов на ИСТ')
-    print('/list_radio  - получение списка абитуриентов на РАДИОТЕХНИКУ')
-    print('/docs  - получение отношения уникальных пользователей подавших заявление на бюджет к кол-ву бюжетных мест')
+    bot.send_message(message.chat.id, '/help  - получение известных команд бота\n'
+                                      '/list_pmi  - получение списка абитуриентов на ПМИ\n'
+                                      '/list_ivt  - получение списка абитуриентов на ИВТ\n'
+                                      '/list_ist  - получение списка абитуриентов на ИСТ\n'
+                                      '/list_radio  - получение списка абитуриентов на РАДИОТЕХНИКУ\n'
+                                      '/docs  - получение отношения уникальных пользователей '
+                                      'подавших заявление на бюджет к кол-ву бюжетных мест')
 
 
 print('bot_started')
@@ -136,7 +138,5 @@ url_ist = "https://abitinfo.nntu.ru/bak/rating/" \
           "?learn_form_id=0&fac_id=281474976714124&specialization=&spec_id=281474976711244&commerce=1"
 url_radio = "https://abitinfo.nntu.ru/bak/rating/" \
             "?learn_form_id=0&fac_id=281474976714124&specialization=&spec_id=281474976711248&commerce=1"
-
-non_commercial = 40 + 93 + 125 + 35
 
 bot.polling(none_stop=True)
