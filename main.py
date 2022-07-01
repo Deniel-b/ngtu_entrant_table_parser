@@ -46,7 +46,8 @@ def send_doc_count(message):
     radio_names_ = get_table_data(url_radio).keys()
     all_names = list(pmi_names_) + list(ivt_names_) + list(ist_names_) + list(radio_names_)
     all_names_uniq = set(all_names)
-    bot.send_message(message.chat.id, f"занято заявлений на бюджет {len(all_names_uniq)} / {non_commercial}")
+    bot.send_message(message.chat.id, f"занято уникальных заявлений на бюджет: {len(all_names_uniq)} / {non_commercial}"
+                                      f"\nвсего подано заявлений: {len(all_names)}")
 
 
 @bot.message_handler(commands=['pmi_list'])
@@ -120,12 +121,13 @@ def send_radio_list(message):
 @bot.message_handler(commands=['help'])
 def send_help(message):
     bot.send_message(message.chat.id, '/help  - получение известных команд бота\n'
-                                      '/list_pmi  - получение списка абитуриентов на ПМИ\n'
-                                      '/list_ivt  - получение списка абитуриентов на ИВТ\n'
-                                      '/list_ist  - получение списка абитуриентов на ИСТ\n'
-                                      '/list_radio  - получение списка абитуриентов на РАДИОТЕХНИКУ\n'
+                                      '/pmi_list  - получение списка абитуриентов на ПМИ\n'
+                                      '/ivt_list  - получение списка абитуриентов на ИВТ\n'
+                                      '/ist_list  - получение списка абитуриентов на ИСТ\n'
+                                      '/radio_list  - получение списка абитуриентов на РАДИОТЕХНИКУ\n'
                                       '/docs  - получение отношения уникальных пользователей '
-                                      'подавших заявление на бюджет к кол-ву бюжетных мест')
+                                      'подавших заявление на бюджет к количеству всех бюджетных мест '
+                                      'и количество всех заявлений на 4 направления')
 
 
 print('bot_started')
