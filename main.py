@@ -116,6 +116,16 @@ def send_radio_list(message):
     bot.send_message(message.chat.id, result)
 
 
+@bot.message_handler(commands=['help'])
+def send_help(message):
+    print('/help  - получение известных команд бота')
+    print('/list_pmi  - получение списка абитуриентов на ПМИ')
+    print('/list_ivt  - получение списка абитуриентов на ИВТ')
+    print('/list_ist  - получение списка абитуриентов на ИСТ')
+    print('/list_radio  - получение списка абитуриентов на РАДИОТЕХНИКУ')
+    print('/docs  - получение отношения уникальных пользователей подавших заявление на бюджет к кол-ву бюжетных мест')
+
+
 print('bot_started')
 
 url_pmi = "https://abitinfo.nntu.ru/bak/rating/" \
