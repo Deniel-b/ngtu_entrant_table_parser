@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from pprint import pp
+from bot import My_Bot
 
 
 def get_pmi_data(url: str) -> dict:
@@ -119,7 +120,7 @@ print("\n")
 
 print(f"radio_names: {list(pmi_names)}")
 print(f"ivt_names: {list(ivt_names)}")
-print(f" ist_names: {list(ist_names)}")
+print(f"ist_names: {list(ist_names)}")
 print(f"radio_names: {list(radio_names)}")
 print("\n")
 
@@ -131,3 +132,6 @@ all_names_uniq = set(all_names)
 
 # print(len(all_names))
 print(f"занято заявлений на бюджет {len(all_names_uniq)} / {non_commercial}")
+
+
+tg_bot = My_Bot()
