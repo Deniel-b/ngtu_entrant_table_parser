@@ -132,4 +132,4 @@ all_names_uniq = set(all_names)
 # print(len(all_names))
 print(f"занято заявлений на бюджет {len(all_names_uniq)} / {non_commercial}")
 
-tg_bot = My_Bot()
+
